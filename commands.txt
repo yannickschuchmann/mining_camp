@@ -1,0 +1,8 @@
+# set aws profile
+export AWS_PROFILE=minecraft
+
+# start
+ansible-playbook -i ec2.py --private-key=~/.ssh/minecraft_rsa -u ubuntu -c ssh start.yml
+
+# stop
+ansible-playbook -i ec2.py --private-key=~/.ssh/minecraft_rsa -u ubuntu -c ssh stop.yml

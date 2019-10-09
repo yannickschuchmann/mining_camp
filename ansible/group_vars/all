@@ -1,16 +1,16 @@
 # TODO: Duplicated from Terraform
 aws_profile: minecraft
-aws_region: us-east-1
-aws_instance_type: m2.xlarge
+aws_region: eu-central-1
+aws_instance_type: i3.large
 
 # Install directory - for ease of use, I've prefixed it with /mnt so it will
 # work with instances with fstab configured
 minecraft_dir: /minecraft
 
 # Set the elastic IP you'd always like associated with your instance here
-minecraft_eip_alloc_id: eipalloc-06237b35
+minecraft_eip_alloc_id: eipalloc-0d3e192e81f42a1c7
 minecraft_tag: minecraft
 
-s3_bucket: josh-minecraft
-server_name: daftcyborg
-server_file: daftcyborg-server-8-20-2017.tgz
+s3_bucket: furfm-minecraft
+server_name: ohmycraft
+server_file: ohmycraft-server-09-10-2019.tgz

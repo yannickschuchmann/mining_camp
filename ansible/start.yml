@@ -89,6 +89,7 @@
       bucket: "{{s3_bucket}}"
       object: "/{{server_name}}/{{server_file}}"
       dest: "{{minecraft_dir}}/{{server_file}}"
+      region: "eu-central-1"
       mode: get
 
   - name: "Extract and install server"
@@ -110,7 +111,7 @@
     cron:
       name: "minecraft backup monitor"
       minute: "*/5"
-      job: "{{minecraft_dir}}/mining-camp/utilities/prospector.py backup"
+      job: "{{minecraft_dir}}/mining-camp/utilities/prospector.py backup_current"
 
   - name: "Start emergency shutdown monitoring script in the background"
     # In order to run a background process, we detach inputs and outputs and

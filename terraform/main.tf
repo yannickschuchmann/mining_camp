@@ -2,6 +2,7 @@
 provider "aws" {
   profile = "minecraft"
   region  = "${var.aws_region}"
+  version = "2.22.0"
 }
 
 # Create a VPC for our instances
@@ -95,6 +96,11 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
+#  filter {
+#    name   = "root-device-type"
+#    values = ["ebs"]
+#  }
+
   owners = ["099720109477"] # Canonical
 }
 
@@ -104,7 +110,8 @@ data "aws_ami" "ubuntu" {
 # our entire instance configuration every time.
 resource "aws_launch_configuration" "minecraft" {
   name              = "minecraft"
-  image_id          = "${data.aws_ami.ubuntu.id}"
+  # image_id          = "${data.aws_ami.ubuntu.id}"
+  image_id          = "ami-0cc0a36f626a4fdf5"
   instance_type     = "${var.aws_instance_type}"
   spot_price        = "${var.max_spot_price}"
   ebs_optimized     = false
